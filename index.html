@@ -1,0 +1,743 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bueno Marketing Activities Overview</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #f6f6f6;
+      --card: #ffffff;
+      --text: #333333;
+      --muted: #9a9a9a;
+      --accent: #ab292e;
+      --green-bg: #e6ffe7;
+      --green: #4a9015;
+      --pink-bg: #ffedfd;
+      --pink: #b221cf;
+      --blue-bg: #edf0ff;
+      --blue: #2f21cf;
+      --footer: #d9d9d9;
+      --shadow: 4px 5px 18px rgba(0, 0, 0, 0.06);
+      --radius-lg: 25px;
+      --radius-md: 20px;
+      --container: 1216px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Outfit", "Noto Sans KR", sans-serif;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      min-height: 100vh;
+      overflow: hidden;
+    }
+
+    .container {
+      width: min(var(--container), calc(100% - 48px));
+      margin: 0 auto;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      padding-top: 25px;
+    }
+
+    .hero-copy,
+    .hero-photo {
+      min-height: 541px;
+      border-radius: var(--radius-lg);
+    }
+
+    .hero-copy {
+      position: relative;
+      padding: 68px 31px 36px;
+      background: var(--card);
+    }
+
+    .window-dots {
+      position: absolute;
+      top: 40px;
+      left: 31px;
+      display: flex;
+      gap: 6px;
+    }
+
+    .window-dots span {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--accent);
+    }
+
+    .hero-logo {
+      position: absolute;
+      top: 40px;
+      right: 31px;
+      font-size: 18px;
+      letter-spacing: 0;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin: 0;
+    }
+
+    h1 {
+      max-width: 420px;
+      font-size: clamp(34px, 3.2vw, 38px);
+      line-height: 1.08;
+      font-weight: 400;
+      text-transform: uppercase;
+    }
+
+    .hero-subtitle {
+      margin-top: 30px;
+      font-size: clamp(24px, 2.4vw, 29px);
+      line-height: 1.25;
+    }
+
+    .hero-description {
+      max-width: 536px;
+      margin-top: 64px;
+      font-size: clamp(18px, 1.75vw, 24px);
+      line-height: 1.28;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 9px;
+      margin-top: 44px;
+    }
+
+    .stat {
+      min-height: 130px;
+      padding: 15px 12px;
+      border-radius: var(--radius-md);
+      background: var(--card);
+      box-shadow: var(--shadow);
+    }
+
+    .stat strong {
+      display: block;
+      color: var(--accent);
+      font-size: 36px;
+      line-height: 1.05;
+      font-weight: 400;
+    }
+
+    .stat span {
+      display: block;
+      margin-top: 9px;
+      font-size: 18px;
+      line-height: 1.25;
+    }
+
+    .hero-photo {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .photo-placeholder {
+      position: relative;
+      min-height: 100%;
+      background:
+        linear-gradient(45deg, rgba(255, 255, 255, 0.56) 25%, transparent 25%),
+        linear-gradient(-45deg, rgba(255, 255, 255, 0.56) 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, rgba(255, 255, 255, 0.56) 75%),
+        linear-gradient(-45deg, transparent 75%, rgba(255, 255, 255, 0.56) 75%),
+        #e8e8e8;
+      background-position: 0 0, 0 12px, 12px -12px, -12px 0;
+      background-size: 24px 24px;
+    }
+
+    .hero-photo .photo-placeholder::after {
+      content: "IMAGE";
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      color: #b6b6b6;
+      font-size: 14px;
+      letter-spacing: 0.16em;
+    }
+
+    .section {
+      padding-top: 60px;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-size: clamp(28px, 3vw, 38px);
+      line-height: 1.1;
+      font-weight: 400;
+    }
+
+    .section-title::after {
+      content: "";
+      width: 45px;
+      height: 10px;
+      background: radial-gradient(circle, var(--accent) 0 4px, transparent 5px);
+      background-size: 18px 10px;
+      background-repeat: repeat-x;
+    }
+
+    .influencers {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 19px;
+      margin-top: 36px;
+    }
+
+    .influencer-card {
+      overflow: hidden;
+      border-radius: var(--radius-lg);
+      background: var(--card);
+    }
+
+    .influencer-card .photo-placeholder {
+      min-height: 334px;
+    }
+
+    .influencer-body {
+      padding: 19px 24px 14px;
+    }
+
+    .card-heading {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 2px;
+    }
+
+    .card-heading h3 {
+      font-size: 27px;
+      line-height: 1.2;
+      font-weight: 400;
+      text-transform: lowercase;
+    }
+
+    .tag {
+      display: inline-flex;
+      min-height: 29px;
+      align-items: center;
+      justify-content: center;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 20px;
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .tag.instagram {
+      background: var(--pink-bg);
+      color: var(--pink);
+    }
+
+    .tag.tiktok {
+      background: var(--blue-bg);
+      color: var(--blue);
+    }
+
+    .tag.result {
+      background: var(--green-bg);
+      color: var(--green);
+    }
+
+    .location {
+      color: var(--muted);
+      font-size: 24px;
+      line-height: 1.25;
+    }
+
+    .metrics {
+      margin-top: 26px;
+      font-size: 24px;
+      line-height: 1.25;
+      white-space: nowrap;
+    }
+
+    .metrics strong {
+      font-weight: 600;
+    }
+
+    .watch-link {
+      display: flex;
+      min-height: 66px;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      margin-top: 23px;
+      border-radius: 16px;
+      background: rgba(171, 41, 46, 0.17);
+      color: var(--accent);
+      font-size: 27px;
+      line-height: 1;
+      text-transform: lowercase;
+    }
+
+    .watch-link span:last-child {
+      transform: translateY(-1px);
+    }
+
+    .promotions {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      margin-top: 36px;
+    }
+
+    .promo-card {
+      display: grid;
+      grid-template-columns: 181px 1fr;
+      min-height: 338px;
+      overflow: hidden;
+      border-radius: var(--radius-lg);
+      background: var(--card);
+    }
+
+    .promo-card.tall {
+      min-height: 378px;
+    }
+
+    .promo-card .photo-placeholder {
+      min-height: 100%;
+    }
+
+    .promo-body {
+      padding: 27px 30px 24px;
+    }
+
+    .promo-body h3 {
+      margin-top: 7px;
+      font-size: clamp(25px, 2.3vw, 32px);
+      line-height: 1.18;
+      font-weight: 500;
+    }
+
+    .promo-body p {
+      margin-top: 17px;
+      max-width: 330px;
+      font-size: 24px;
+      line-height: 1.28;
+    }
+
+    .date {
+      display: block;
+      margin-top: 28px;
+      color: var(--muted);
+      font-size: 24px;
+    }
+
+    .commerce {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 36px;
+      padding-bottom: 114px;
+    }
+
+    .commerce-card {
+      position: relative;
+      min-height: 338px;
+      overflow: hidden;
+      border-radius: var(--radius-lg);
+      background: var(--card);
+    }
+
+    .commerce-card .photo-placeholder {
+      min-height: 100%;
+    }
+
+    .commerce-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 30%, #ffffff 62%);
+      pointer-events: none;
+    }
+
+    .commerce-info {
+      position: absolute;
+      z-index: 1;
+      left: 27px;
+      right: 26px;
+      bottom: 27px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 18px;
+      align-items: end;
+    }
+
+    .commerce-name {
+      font-size: 27px;
+      line-height: 1.2;
+    }
+
+    .commerce-region,
+    .review {
+      color: var(--muted);
+      font-size: 24px;
+      line-height: 1.25;
+    }
+
+    .rating {
+      color: var(--accent);
+      font-size: 48px;
+      line-height: 1;
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    .footer {
+      background: var(--footer);
+      padding: 36px 24px 49px;
+      text-align: center;
+    }
+
+    .footer-logo {
+      font-size: 24px;
+      line-height: 1;
+    }
+
+    .copyright {
+      margin-top: 20px;
+      font-size: 27px;
+      line-height: 1.2;
+    }
+
+    .socials {
+      display: flex;
+      justify-content: center;
+      gap: 28px;
+      margin-top: 31px;
+    }
+
+    .socials a {
+      display: grid;
+      width: 66px;
+      height: 66px;
+      place-items: center;
+      border-radius: 999px;
+      background: #ffffff;
+      font-size: 26px;
+      font-weight: 600;
+    }
+
+    @media (max-width: 1180px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-copy,
+      .hero-photo {
+        min-height: auto;
+      }
+
+      .hero-photo {
+        aspect-ratio: 16 / 9;
+      }
+
+      .influencers {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .commerce {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .container {
+        width: min(100% - 28px, var(--container));
+      }
+
+      .hero {
+        padding-top: 14px;
+      }
+
+      .hero-copy {
+        padding: 58px 20px 24px;
+      }
+
+      .window-dots {
+        top: 28px;
+        left: 20px;
+      }
+
+      .hero-logo {
+        top: 24px;
+        right: 20px;
+      }
+
+      .hero-description {
+        margin-top: 36px;
+      }
+
+      .stats {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .section {
+        padding-top: 46px;
+      }
+
+      .influencers,
+      .promotions {
+        grid-template-columns: 1fr;
+      }
+
+      .promo-card,
+      .promo-card.tall {
+        grid-template-columns: 1fr;
+        min-height: 0;
+      }
+
+      .promo-card .photo-placeholder {
+        min-height: 210px;
+      }
+
+      .metrics,
+      .date,
+      .promo-body p,
+      .location,
+      .commerce-region,
+      .review {
+        font-size: 18px;
+      }
+
+      .card-heading h3,
+      .watch-link,
+      .commerce-name,
+      .copyright {
+        font-size: 22px;
+      }
+
+      .tag {
+        font-size: 16px;
+      }
+
+      .rating {
+        font-size: 34px;
+      }
+
+      .socials a {
+        width: 48px;
+        height: 48px;
+        font-size: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="hero container">
+      <div class="hero-copy">
+        <div class="window-dots" aria-hidden="true"><span></span><span></span><span></span></div>
+        <a class="hero-logo" href="#">Bueno</a>
+
+        <h1>Marketing Activities Overview</h1>
+        <p class="hero-subtitle">우리는 이미 팔리고 있는 브랜드입니다</p>
+        <p class="hero-description">CIS·유럽 시장을 위한 인플루언서 마케팅, 디지털 프로모션, 이커머스 운영 현황을 한눈에 확인하세요.</p>
+
+        <div class="stats" aria-label="Marketing statistics">
+          <div class="stat"><strong>24+</strong><span>인플루언서 협업</span></div>
+          <div class="stat"><strong>4.2M+</strong><span>총 콘텐츠 조회수</span></div>
+          <div class="stat"><strong>6개</strong><span>활동 국가</span></div>
+          <div class="stat"><strong>3개</strong><span>이커머스 플랫폼</span></div>
+        </div>
+      </div>
+
+      <div class="hero-photo">
+        <div class="photo-placeholder"></div>
+      </div>
+    </section>
+
+    <section class="section container">
+      <h2 class="section-title">인플루언서 활동</h2>
+
+      <div class="influencers">
+        <article class="influencer-card">
+          <div class="photo-placeholder"></div>
+          <div class="influencer-body">
+            <div class="card-heading">
+              <h3>@beauty_ru</h3>
+              <span class="tag instagram">Instagram</span>
+            </div>
+            <p class="location">Russia</p>
+            <p class="metrics">팔로워 <strong>380K</strong> &nbsp; 조회 <strong>1.2M</strong></p>
+            <a class="watch-link" href="#"><span>영상 보기</span><span>→</span></a>
+          </div>
+        </article>
+
+        <article class="influencer-card">
+          <div class="photo-placeholder"></div>
+          <div class="influencer-body">
+            <div class="card-heading">
+              <h3>@beauty_ru</h3>
+              <span class="tag tiktok">TikTok</span>
+            </div>
+            <p class="location">Russia</p>
+            <p class="metrics">팔로워 <strong>380K</strong> &nbsp; 조회 <strong>1.2M</strong></p>
+            <a class="watch-link" href="#"><span>영상 보기</span><span>→</span></a>
+          </div>
+        </article>
+
+        <article class="influencer-card">
+          <div class="photo-placeholder"></div>
+          <div class="influencer-body">
+            <div class="card-heading">
+              <h3>@beauty_ru</h3>
+              <span class="tag instagram">Instagram</span>
+            </div>
+            <p class="location">Russia</p>
+            <p class="metrics">팔로워 <strong>380K</strong> &nbsp; 조회 <strong>1.2M</strong></p>
+            <a class="watch-link" href="#"><span>영상 보기</span><span>→</span></a>
+          </div>
+        </article>
+
+        <article class="influencer-card">
+          <div class="photo-placeholder"></div>
+          <div class="influencer-body">
+            <div class="card-heading">
+              <h3>@beauty_ru</h3>
+              <span class="tag instagram">Instagram</span>
+            </div>
+            <p class="location">Russia</p>
+            <p class="metrics">팔로워 <strong>380K</strong> &nbsp; 조회 <strong>1.2M</strong></p>
+            <a class="watch-link" href="#"><span>영상 보기</span><span>→</span></a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section container">
+      <h2 class="section-title">프로모션 활동</h2>
+
+      <div class="promotions">
+        <article class="promo-card">
+          <div class="photo-placeholder"></div>
+          <div class="promo-body">
+            <span class="tag result">ROAS 3.2x</span>
+            <h3>Meta 타겟 광고 — CIS 지역</h3>
+            <p>러시아·우크라이나·카자흐스탄 여성 25~40세 타겟. 제품 언박싱 및 사용 영상 소재.</p>
+            <span class="date">2024.09 – 2025.03</span>
+          </div>
+        </article>
+
+        <article class="promo-card">
+          <div class="photo-placeholder"></div>
+          <div class="promo-body">
+            <span class="tag result">매출 +180%</span>
+            <h3>플래시 세일 캠페인</h3>
+            <p>시즌별 72시간 한정 세일, 인플루언서 동시 시딩으로 유입 극대화.</p>
+            <span class="date">2024.11 – 2025.02</span>
+          </div>
+        </article>
+
+        <article class="promo-card tall">
+          <div class="photo-placeholder"></div>
+          <div class="promo-body">
+            <span class="tag result">바이어 접촉 40+</span>
+            <h3>전시회 참가 — Cosmoprof / Beauty Düsseldorf</h3>
+            <p>현장 제품 시연 및 바이어 상담. 퀄리티 우수 반응 다수.</p>
+            <span class="date">2025.01 – 2025.03</span>
+          </div>
+        </article>
+
+        <article class="promo-card tall">
+          <div class="photo-placeholder"></div>
+          <div class="promo-body">
+            <span class="tag result">팔로워 1,200+</span>
+            <h3>LinkedIn 브랜드 페이지 운영</h3>
+            <p>B2B 대상 브랜드 스토리, 제품 출시, 전시 참가 소식 게시.</p>
+            <span class="date">2024.06 – 현재</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section container">
+      <h2 class="section-title">이커머스 활동</h2>
+
+      <div class="commerce">
+        <article class="commerce-card">
+          <div class="photo-placeholder"></div>
+          <div class="commerce-info">
+            <div>
+              <h3 class="commerce-name">자사몰</h3>
+              <p class="commerce-region">Korea · Global</p>
+            </div>
+            <div>
+              <p class="rating">★ 4.8</p>
+              <p class="review">리뷰 1,240개</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="commerce-card">
+          <div class="photo-placeholder"></div>
+          <div class="commerce-info">
+            <div>
+              <h3 class="commerce-name">Naver<br />스마트스토어</h3>
+              <p class="commerce-region">Korea</p>
+            </div>
+            <div>
+              <p class="rating">★ 4.7</p>
+              <p class="review">월 주문 2,000+</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="commerce-card">
+          <div class="photo-placeholder"></div>
+          <div class="commerce-info">
+            <div>
+              <h3 class="commerce-name">Amazon</h3>
+              <p class="commerce-region">Europe · US</p>
+            </div>
+            <div>
+              <p class="rating">★ 4.6</p>
+              <p class="review">리뷰 380개</p>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <a class="footer-logo" href="#">Bueno</a>
+    <p class="copyright">© 2026 BuenoBio. All rights reserved.</p>
+    <nav class="socials" aria-label="Social links">
+      <a href="#" aria-label="Facebook">f</a>
+      <a href="#" aria-label="Instagram">◎</a>
+      <a href="#" aria-label="Twitter">t</a>
+      <a href="#" aria-label="YouTube">▶</a>
+    </nav>
+  </footer>
+</body>
+</html>
