@@ -389,14 +389,15 @@ img {
 }
 
 .footer-logo {
-  font-size: 45px;
-  line-height: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.footer-logo sup {
-  position: relative;
-  top: -0.7em;
-  font-size: 58%;
+.footer-logo-img {
+  width: 140px;
+  height: auto;
+  display: block;
 }
 
 .footer-copy {
