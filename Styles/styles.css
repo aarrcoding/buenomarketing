@@ -102,14 +102,15 @@ img {
 }
 
 .stats-grid {
-  margin-top: 40px;
+  margin-top: 32px;
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 9px;
+  align-items: start;
 }
 
 .stat-box {
-  min-height: 108px;
+  min-height: 96px;
   background: #fff;
   border-radius: var(--radius-md);
   box-shadow: var(--soft-shadow);
@@ -129,9 +130,9 @@ img {
 
 .stat-box span {
   display: block;
-  margin-top: 6px;
+  margin-top: 4px;
   font-size: clamp(12px, 0.95vw, 15px);
-  line-height: 1.15;
+  line-height: 1.1;
 }
 
 .hero-photo {
