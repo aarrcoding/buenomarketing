@@ -310,15 +310,18 @@ img {
 
 .ecom-card {
   position: relative;
-  height: 338px;
+  height: 380px;
   border-radius: var(--radius-lg);
   overflow: hidden;
   background: #fff;
+  display: grid;
+  grid-template-rows: 190px 1fr;
 }
 
 .ecom-media {
-  position: absolute;
-  inset: 0;
+  position: relative;
+  inset: auto;
+  height: 100%;
 }
 
 .ecom-media img {
@@ -342,12 +345,10 @@ img {
 }
 
 .ecom-body {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  position: relative;
   z-index: 1;
-  padding: 18px 18px 22px;
+  background: #fff;
+  padding: 18px 18px 20px;
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
   grid-template-areas:
@@ -448,28 +449,30 @@ img {
   box-shadow: 0 10px 26px rgba(171, 41, 46, 0.14);
 }
 
-.store-btn:hover .store-btn-label,
-.store-btn:hover .store-btn-arrow {
-  transform: scale(1.05);
-  font-weight: 600;
-}
-
-.store-btn:active::before,
 .store-btn:hover::before {
   transform: scaleX(1);
 }
 
-.store-btn:active .store-btn-label,
-.store-btn:active .store-btn-arrow,
 .store-btn:hover .store-btn-label,
 .store-btn:hover .store-btn-arrow {
   color: #ffffff;
+  transform: scale(1.05);
+  font-weight: 600;
 }
 
-@media (hover: hover) {
-  .store-btn:hover::before {
-    transform: scaleX(0);
-  }
+.store-btn:active {
+  border-color: #ab292e;
+}
+
+.store-btn:active::before {
+  transform: scaleX(1);
+}
+
+.store-btn:active .store-btn-label,
+.store-btn:active .store-btn-arrow {
+  color: #ffffff;
+  transform: scale(1.03);
+  font-weight: 600;
 }
 
 .site-footer {
