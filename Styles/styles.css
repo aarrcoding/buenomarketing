@@ -242,6 +242,7 @@ img {
   overflow: hidden;
   display: grid;
   grid-template-columns: 181px 1fr;
+  align-items: stretch;
 }
 
 .promo-card-tall {
@@ -264,7 +265,10 @@ img {
   padding: 26px 24px 24px;
   display: flex;
   flex-direction: column;
+  height: 100%;
+  min-height: 100%;
   gap: 14px;
+  align-self: stretch;
 }
 
 .badge-pill {
