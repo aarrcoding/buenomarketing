@@ -341,12 +341,13 @@ img {
   right: 0;
   bottom: 0;
   z-index: 1;
-  padding: 18px;
+  padding: 18px 18px 20px;
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
   grid-template-areas:
     "title rating"
-    "sub reviews";
+    "sub reviews"
+    "button button";
   align-items: end;
   column-gap: 12px;
   row-gap: 6px;
@@ -385,6 +386,84 @@ img {
   color: var(--muted);
   font-size: clamp(12px, 0.9vw, 18px);
   line-height: 1.15;
+}
+
+.store-btn {
+  grid-area: button;
+  position: relative;
+  overflow: hidden;
+  margin-top: 18px;
+  width: 100%;
+  min-height: 66px;
+  border-radius: 16px;
+  background: rgba(171, 41, 46, 0.1);
+  border: 2px solid transparent;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  color: var(--accent);
+  transition: border-color 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
+}
+
+.store-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #ab292e;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.32s ease;
+  z-index: 0;
+}
+
+.store-btn-label,
+.store-btn-arrow {
+  position: relative;
+  z-index: 1;
+  transition: color 0.25s ease, transform 0.25s ease, font-weight 0.25s ease;
+}
+
+.store-btn-label {
+  font-size: clamp(20px, 1.65vw, 24px);
+  line-height: 1;
+  font-weight: 500;
+}
+
+.store-btn-arrow {
+  font-size: clamp(28px, 2vw, 36px);
+  line-height: 1;
+  font-weight: 400;
+}
+
+.store-btn:hover {
+  border-color: #ab292e;
+  box-shadow: 0 10px 26px rgba(171, 41, 46, 0.14);
+}
+
+.store-btn:hover .store-btn-label,
+.store-btn:hover .store-btn-arrow {
+  transform: scale(1.05);
+  font-weight: 600;
+}
+
+.store-btn:active::before,
+.store-btn:hover::before {
+  transform: scaleX(1);
+}
+
+.store-btn:active .store-btn-label,
+.store-btn:active .store-btn-arrow,
+.store-btn:hover .store-btn-label,
+.store-btn:hover .store-btn-arrow {
+  color: #ffffff;
+}
+
+@media (hover: hover) {
+  .store-btn:hover::before {
+    transform: scaleX(0);
+  }
 }
 
 .site-footer {
@@ -529,11 +608,11 @@ img {
     line-height: 1;
   }
 
- .stat-box span {
-  margin-top: 6px;
-  font-size: 20px;
-  line-height: 1.2;
- }
+  .stat-box span {
+    margin-top: 6px;
+    font-size: 20px;
+    line-height: 1.2;
+  }
 
   .video-carousel {
     --visible-slides: 1;
@@ -562,6 +641,25 @@ img {
     grid-template-columns: 1fr;
   }
 
+  .ecom-body {
+    padding: 16px 16px 18px;
+    row-gap: 5px;
+  }
+
+  .store-btn {
+    min-height: 58px;
+    margin-top: 14px;
+    gap: 14px;
+  }
+
+  .store-btn-label {
+    font-size: 18px;
+  }
+
+  .store-btn-arrow {
+    font-size: 28px;
+  }
+
   .site-footer {
     padding: 44px 14px 34px;
   }
@@ -579,21 +677,21 @@ img {
     width: 34px;
     height: 34px;
   }
-  
-  .section-title {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  text-align: center;
-  width: 100%;
-}
 
-.title-dots {
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-  transform: none;
+  .section-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    text-align: center;
+    width: 100%;
+  }
+
+  .title-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    transform: none;
   }
 }
