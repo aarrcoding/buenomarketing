@@ -337,9 +337,10 @@ img {
   inset: 0;
   background: linear-gradient(
     to bottom,
-    rgba(255, 255, 255, 0) 28%,
-    rgba(255, 255, 255, 0.72) 56%,
-    #ffffff 72%,
+    rgba(255, 255, 255, 0) 48%,
+    rgba(255, 255, 255, 0.35) 62%,
+    rgba(255, 255, 255, 0.72) 76%,
+    rgba(255, 255, 255, 0.92) 88%,
     #ffffff 100%
   );
 }
@@ -399,6 +400,7 @@ img {
   grid-area: button;
   position: relative;
   overflow: hidden;
+  isolation: isolate;
   margin-top: 18px;
   width: 100%;
   min-height: 66px;
@@ -411,7 +413,10 @@ img {
   justify-content: center;
   gap: 18px;
   color: var(--accent);
-  transition: border-color 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    background-color 0.25s ease;
 }
 
 .store-btn::before {
@@ -419,9 +424,8 @@ img {
   position: absolute;
   inset: 0;
   background: #ab292e;
-  transform: scaleX(0);
-  transform-origin: left center;
-  transition: transform 0.32s ease;
+  opacity: 0;
+  transition: opacity 0.28s ease;
   z-index: 0;
 }
 
@@ -429,7 +433,10 @@ img {
 .store-btn-arrow {
   position: relative;
   z-index: 1;
-  transition: color 0.25s ease, transform 0.25s ease, font-weight 0.25s ease;
+  transition:
+    color 0.22s ease,
+    transform 0.22s ease,
+    font-weight 0.22s ease;
 }
 
 .store-btn-label {
@@ -446,26 +453,20 @@ img {
 
 .store-btn:hover {
   border-color: #ab292e;
-  box-shadow: 0 10px 26px rgba(171, 41, 46, 0.14);
-}
-
-.store-btn:hover::before {
-  transform: scaleX(1);
 }
 
 .store-btn:hover .store-btn-label,
 .store-btn:hover .store-btn-arrow {
-  color: #ffffff;
   transform: scale(1.05);
   font-weight: 600;
 }
 
-.store-btn:active {
-  border-color: #ab292e;
+.store-btn:active::before {
+  opacity: 1;
 }
 
-.store-btn:active::before {
-  transform: scaleX(1);
+.store-btn:active {
+  border-color: #ab292e;
 }
 
 .store-btn:active .store-btn-label,
@@ -474,6 +475,7 @@ img {
   transform: scale(1.03);
   font-weight: 600;
 }
+
 
 .site-footer {
   margin-top: 56px;
