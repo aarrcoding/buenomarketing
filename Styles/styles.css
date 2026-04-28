@@ -114,6 +114,9 @@ img {
   border-radius: var(--radius-md);
   box-shadow: var(--soft-shadow);
   padding: 14px 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 .stat-box strong {
