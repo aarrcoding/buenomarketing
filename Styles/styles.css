@@ -102,42 +102,39 @@ img {
 }
 
 .stats-grid {
-  margin-top: 28px;
+  margin-top: 30px;
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 9px;
-  align-items: start;
+  gap: 10px;
+  align-items: stretch;
 }
 
 .stat-box {
-  min-height: unset;
-  height: auto;
   background: #fff;
   border-radius: var(--radius-md);
   box-shadow: var(--soft-shadow);
-  padding: 12px 12px 8px;
+  padding: 14px 14px 12px;
+  min-height: 112px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  align-self: start;
 }
 
 .stat-box strong {
   display: block;
   color: var(--accent);
-  font-size: clamp(28px, 2.2vw, 34px);
+  font-size: clamp(26px, 2vw, 32px);
   line-height: 1;
   font-weight: 500;
-  margin: 0;
 }
-
 
 .stat-box span {
   display: block;
-  margin-top: 4px;
-  font-size: clamp(12px, 0.95vw, 15px);
-  line-height: 1.08;
+  margin-top: 8px;
+  font-size: clamp(13px, 0.95vw, 16px);
+  line-height: 1.15;
 }
+
 
 .hero-photo {
   position: relative;
