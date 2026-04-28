@@ -109,26 +109,29 @@ img {
 }
 
 .stat-box {
-  min-height: 130px;
+  min-height: 108px;
   background: #fff;
   border-radius: var(--radius-md);
   box-shadow: var(--soft-shadow);
-  padding: 14px 12px;
+  padding: 12px 12px 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 .stat-box strong {
   display: block;
   color: var(--accent);
-  font-size: clamp(26px, 2.1vw, 32px);
+  font-size: clamp(28px, 2.2vw, 34px);
   line-height: 1;
-  font-weight: 400;
+  font-weight: 500;
 }
 
 .stat-box span {
   display: block;
-  margin-top: 8px;
-  font-size: clamp(13px, 1vw, 16px);
-  line-height: 1.2;
+  margin-top: 6px;
+  font-size: clamp(12px, 0.95vw, 15px);
+  line-height: 1.15;
 }
 
 .hero-photo {
@@ -495,8 +498,43 @@ img {
     padding: 56px 16px 18px;
   }
 
+  .hero-card h1 {
+    font-size: 30px;
+    line-height: 1.05;
+  }
+
+  .hero-subtitle {
+    font-size: 19px;
+    line-height: 1.22;
+    margin-top: 20px;
+  }
+
   .hero-description {
-    margin-top: 34px;
+    margin-top: 28px;
+    font-size: 16px;
+    line-height: 1.35;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    margin-top: 28px;
+  }
+
+  .stat-box {
+    min-height: 118px;
+    padding: 14px 14px 12px;
+  }
+
+  .stat-box strong {
+    font-size: 24px;
+    line-height: 1;
+  }
+
+  .stat-box span {
+    margin-top: 6px;
+    font-size: 15px;
+    line-height: 1.15;
   }
 
   .video-carousel {
